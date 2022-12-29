@@ -89,6 +89,12 @@ async function createUSDZFromGLB() {
     const exporter = new USDZExporter();
     const arraybuffer = await exporter.parse(model);
     const usdz = new Blob([arraybuffer], {type: 'application/octet-stream'});
+    console.log(URL.createObjectURL(usdz));
+
+    if(document.body.contains(document.getElementById('arButton'))){
+let link = document.getElementById('arButton');
+        link.href = URL.createObjectURL(usdz);
+    }
     return URL.createObjectURL(usdz);
 }
 
@@ -130,6 +136,7 @@ function removeEntity() {
 async function addEntity(objURL){
     model = await getGLBModel(objURL);
     scene.add(model);
+    usdzURL = await createUSDZFromGLB()
 }
 
 function recenterCamera(){
@@ -153,8 +160,8 @@ async function init() {
 
     await addEntity(objectURL.href);
 
-    usdzURL = await createUSDZFromGLB(model);
 
+    console.log(usdzURL.href);
     createOrbitControl(camera, renderer.domElement);
 
     const htmlElements = new HTMLElements();

@@ -19,15 +19,16 @@ const imgMixerURL = new URL("../imgs/Mixer.webp", import.meta.url);
 const imgGeoPlanterURL = new URL("../imgs/GeoPlanter.webp", import.meta.url);
 const imgToyTrainURL= new URL("../imgs/ToyTrain.webp", import.meta.url);
 const imgCanoeURL= new URL("../imgs/Canoe.webp", import.meta.url);
-
+const qrPageURL= new URL("../qrpage.html", import.meta.url);
 const modelURLs = [chairURL, planterURL, MixerURL, toyTrainURL, canoeURL]
 const imgModelURLs = [imgChairURL, imgGeoPlanterURL, imgMixerURL, imgToyTrainURL, imgCanoeURL]
 class HTMLElements {
 
     buttons_div;
-
+    usdzURL;
      create (canvas, usdzURL) {
         this.loadCSS();
+        this.usdzURL = usdzURL;
          canvas.className = "web-you-canvas";
         this.createButtonsDiv(canvas)
         this.createARButton(canvas, usdzURL);
@@ -102,8 +103,8 @@ class HTMLElements {
 
     createARButtonIOS(canvas, usdzURL) {
         let link = document.createElement("a");
-        link.className = "button";
-        link.id = "link";
+        link.className = "web-you-button";
+        link.id = "arButton";
         link.href = usdzURL;
         link.download = "scene.usdz";
         link.rel = 'ar';
@@ -161,8 +162,8 @@ class HTMLElements {
                 light: "#FFFFFF"
             }
         }
-
-        QRCode.toDataURL('I am a pony!', opts, function (err, url) {
+        console.log(qrPageURL.href+"?usdz="+this.usdzURL);
+        QRCode.toDataURL(qrPageURL.href+"&usdz="+this.usdzURL, opts, function (err, url) {
             img.src = url;
         })
 

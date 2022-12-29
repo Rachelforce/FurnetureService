@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<script>
+function getMobileOperatingSystem() {
+var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+
+if (/windows phone/i.test(userAgent)) {
+return "Windows Phone";
+}
+
+if (/android/i.test(userAgent)) {
+return "Android";
+}
+
+
+if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+return "iOS";
+}
+
+return "unknown";
+}
+</script>
+
+<script>
+    function DetectAndServe(){
+        let os = getMobileOperatingSystem();
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        console.log(os);
+        const usdzParam = urlParams.get('usdz');
+        console.log(usdzParam);
+        let link = "intent://arvr.google.com/scene-viewer/1.1?file=https://rachelforce.github.io/TrainsTest/model.glb&link=https://vk.com&title=RZD APP#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;";
+        if (os == "Android") {
+            window.location.href = "intent://arvr.google.com/scene-viewer/1.1?file=https://dp.rzd-museum.ru/promo/models/KVZD-3/scene.gltf&mode=ar_only#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;";
+        } else if (os == "iOS") {
+            iosAR(usdzParam);
+        } else {
+            iosAR(usdzParam);
+        }
+    }
+
+    function iosAR(usdz){
+        var link = document.createElement('a');
+        link.className = 'wplauncher-link';
+        link.href = usdz;
+        link.download = "scene.usdz";
+        document.body.appendChild(link);
+        link.click();
+    }
+
+</script>
+<body onload="DetectAndServe()" >
+
+</body>
+</html>
