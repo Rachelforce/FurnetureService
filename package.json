@@ -1,0 +1,24 @@
+{
+  "name": "furnetureservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "qrcode": "^1.5.1",
+    "three": "^0.147.0"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "console-browserify": "^1.2.0",
+    "process": "^0.11.10",
+    "util": "^0.12.5"
+  }
+}
