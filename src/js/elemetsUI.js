@@ -8,7 +8,7 @@ const cssURL = new URL("../style.css", import.meta.url);
 const QRCode = require("qrcode");
 const imgURL = new URL("../imgs/Chair.webp", import.meta.url);
 
-const chairURL = new URL("../models/chair.glb", import.meta.url);
+const chairURL = new URL("../models/Chair.glb", import.meta.url);
 const planterURL = new URL("../models/GeoPlanter.glb", import.meta.url);
 const MixerURL = new URL("../models/Mixer.glb", import.meta.url);
 const toyTrainURL = new URL("../models/ToyTrain.glb", import.meta.url);
