@@ -112,11 +112,18 @@ class HTMLElements {
         img.src = arIcon.href;
         link.appendChild(img);
         this.buttons_div.appendChild(link);
-
     }
 
     createARButtonAndroid(canvas) {
-        this.createARButtonWindows(canvas)
+        let link = document.createElement("a");
+        link.className = "web-you-button";
+        link.id = "arButton-and";
+        link.href = "intent://arvr.google.com/scene-viewer/1.1?file=https://server.eto-art.xyz/models/Chair-1671755610554.glb&mode=ar_only#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;";
+        link.rel = 'ar';
+        let img = document.createElement('img');
+        img.src = arIcon.href;
+        link.appendChild(img);
+        this.buttons_div.appendChild(link);
     }
 
     createARButtonWindows(canvas) {

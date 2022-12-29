@@ -44,7 +44,7 @@ body{
     text-align: center;
     overflow: hidden;
     position: absolute;
-    bottom: 16px;
+    bottom: 5vh;
 }
 
 #slides {
@@ -64,8 +64,8 @@ body{
 .slide {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 10vh;
+    height: 10vh;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -103,7 +103,7 @@ body{
     font-family: "Segoe UI Semibold";
     padding: 2.2vh;
     max-width: 24vh;
-    bottom: 15vh;
+    bottom: 20vh;
 }
 
 #divQR img{

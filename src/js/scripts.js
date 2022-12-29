@@ -82,6 +82,9 @@ async function getGLBModel(objURL) {
             if (n.material.map) n.material.map.anisotropy = 1;
         }
     })
+   // console.log(URL.createObjectURL(model));
+
+
     return model;
 }
 
@@ -121,6 +124,10 @@ export async function changeObject(button, modelURL){
     slides.forEach((element) => {
         element.classList.remove("selected");
     });
+    if(document.body.contains(document.getElementById('arButton-and'))){
+        let link = document.getElementById('arButton-and');
+        link.href = "intent://arvr.google.com/scene-viewer/1.1?file="+ modelURL+"&mode=ar_only#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"
+    }
     button.className = "slide selected"
     removeEntity();
     await addEntity(modelURL);
