@@ -58,7 +58,7 @@ class HTMLElements {
 
     createObjCarusel(canvas, models){
 
-         const imgs = this.httpGet("http://225266.fornex.cloud:8000/files");
+         const imgs = this.httpGet("https://server.eto-art.xyz/files");
          console.log(imgs);
          let slider = document.createElement("div");
         slider.id = "slider";
@@ -70,9 +70,9 @@ class HTMLElements {
          for (let i =0; i<imgs.length;i++){
              const fileName = imgs[i].split(".")[0]
              let objdiv = document.createElement("button");
-             objdiv.style = "background-image: url('http://225266.fornex.cloud:8000/previews/"+ imgs[i] +"');"
+             objdiv.style = "background-image: url('https://server.eto-art.xyz/previews/"+ imgs[i] +"');"
              objdiv.id = i;
-             objdiv.onclick= function (){ changeObject(this, "http://225266.fornex.cloud:8000/models/"+fileName+".glb")};
+             objdiv.onclick= function (){ changeObject(this, "https://server.eto-art.xyz/models/"+fileName+".glb")};
              if (i===0){
                  objdiv.className = "slide";
              }else{
