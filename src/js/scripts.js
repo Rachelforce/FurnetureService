@@ -9,7 +9,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import Stats from "three/examples/jsm/libs/stats.module";
 import {HTMLElements} from "./elemetsUI.js"
 
-const objectURL = new URL("../models/Chair.glb", import.meta.url);
+const objectURL = new URL("../models/web-you.glb", import.meta.url);
 
 
 let canvas, scene, camera, renderer, controls, light, stats, model, usdzURL, modelID;

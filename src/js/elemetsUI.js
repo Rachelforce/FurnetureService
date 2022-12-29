@@ -74,7 +74,7 @@ class HTMLElements {
              objdiv.id = i;
              objdiv.onclick= function (){ changeObject(this, "http://225266.fornex.cloud:8000/models/"+fileName+".glb")};
              if (i===0){
-                 objdiv.className = "slide selected";
+                 objdiv.className = "slide";
              }else{
                  objdiv.className = "slide";
              }
@@ -112,6 +112,7 @@ class HTMLElements {
         img.src = arIcon.href;
         link.appendChild(img);
         this.buttons_div.appendChild(link);
+
     }
 
     createARButtonAndroid(canvas) {
@@ -163,7 +164,7 @@ class HTMLElements {
             }
         }
         console.log(qrPageURL.href+"?usdz="+this.usdzURL);
-        QRCode.toDataURL(qrPageURL.href+"&usdz="+this.usdzURL, opts, function (err, url) {
+        QRCode.toDataURL("http://225266.fornex.cloud:1234/", opts, function (err, url) {
             img.src = url;
         })
 
