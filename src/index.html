@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name='viewport' content='width=innerHeight, initial-scale=1'>
 
     <title>Furniture Service</title>
 <style>
 
     #web-you-3d-container{
-        width:100vw;
-        height:100vh;
+        min-height: 100vh;
+        /* mobile viewport bug fix */
+        min-height: -webkit-fill-available;
+      width: 100vw;
+
+        position: fixed;
+    }
+    html {
+        position: fixed;
+        height: -webkit-fill-available;
     }
 </style>
 </head>
 <body>
 <div id="web-you-3d-container"  data-uuid="759dd2b0-f073-013a-2a70-4e5fca380ce0"></div><script src="./js/scripts.js" type="module"></script>
 </body>
+
 </html>

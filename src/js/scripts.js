@@ -49,6 +49,7 @@ function createScene() {
     const pmremGenerator = new THREE.PMREMGenerator( renderer );
     scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
     scene.background = new THREE.Color(0xf0f0f0);
+    scene.updateWorldMatrix(false, true)
 }
 
 function createRenderer(canvas) {
@@ -75,6 +76,7 @@ async function getGLBModel(objURL) {
     let dataGLB = await loader.loadAsync(objURL);
     model = dataGLB.scene;
     model.name = "object"
+    model.updateWorldMatrix(false, true)
     model.traverse(n => {
         if (n.isMesh) {
             n.castShadow = true;
@@ -92,6 +94,7 @@ async function createUSDZFromGLB() {
     const exporter = new USDZExporter();
     const arraybuffer = await exporter.parse(model);
     const usdz = new Blob([arraybuffer], {type: 'application/octet-stream'});
+
     console.log(URL.createObjectURL(usdz));
 
     if(document.body.contains(document.getElementById('arButton'))){

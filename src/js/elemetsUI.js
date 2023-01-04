@@ -129,7 +129,7 @@ class HTMLElements {
     createARButtonWindows(canvas) {
         this.createQRCodeDiv(canvas);
         let link = document.createElement("a");
-        link.id = "arButton";
+        link.id = "arButton-windows";
         link.className = "web-you-button";
         link.onclick = this.changeQRDivVisibility;
         let img = document.createElement('img');
