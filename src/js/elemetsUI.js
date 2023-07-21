@@ -58,7 +58,7 @@ class HTMLElements {
 
     createObjCarusel(canvas, models){
 
-         const imgs = this.httpGet("https://server.eto-art.xyz/files");
+         const imgs = this.httpGet("https://ahg3dserver.web-you.pl/files");
          console.log(imgs);
          let slider = document.createElement("div");
         slider.id = "slider";
@@ -70,9 +70,9 @@ class HTMLElements {
          for (let i =0; i<imgs.length;i++){
              const fileName = imgs[i].split(".")[0]
              let objdiv = document.createElement("button");
-             objdiv.style = "background-image: url('https://server.eto-art.xyz/previews/"+ imgs[i] +"');"
+             objdiv.style = "background-image: url('https://ahg3dserver.web-you.pl/previews/"+ imgs[i] +"');"
              objdiv.id = i;
-             objdiv.onclick= function (){ changeObject(this, "https://server.eto-art.xyz/models/"+fileName+".glb")};
+             objdiv.onclick= function (){ changeObject(this, "https://ahg3dserver.web-you.pl/models/"+fileName+".glb")};
              if (i===0){
                  objdiv.className = "slide";
              }else{
@@ -171,7 +171,7 @@ class HTMLElements {
             }
         }
         console.log(qrPageURL.href+"?usdz="+this.usdzURL);
-        QRCode.toDataURL("https://furneture.eto-art.xyz/", opts, function (err, url) {
+        QRCode.toDataURL("https://ahg3dcatalog.web-you.pl", opts, function (err, url) {
             img.src = url;
         })
 
